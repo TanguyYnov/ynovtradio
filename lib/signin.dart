@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Form(
                 key: _formKey,
@@ -253,6 +253,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.top * 2,
+                      ),
                     ],
                   ),
                 ),
@@ -282,3 +285,5 @@ class _LoginPageState extends State<LoginPage> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => PhonePage()));
   }*/
 }
+
+//ok
