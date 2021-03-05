@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "805861581908",
+    "project_id": "ynotradio-3c2ec",
+    "storage_bucket": "ynotradio-3c2ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805861581908:android:cea929491bc307cc4b39c1",
+        "android_client_info": {
+          "package_name": "com.example.ynotradio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805861581908-2mepskscvm0b6li18ue226u2ran62hcp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ynotradio",
+            "certificate_hash": "110a83be1d5eaed61284e2f85b63e5920b5bdde9"
+          }
+        },
+        {
+          "client_id": "805861581908-qpcpl0qfn2lpf572pjtkmhvoccnkuqm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB69F9l-tnS2eBv6VwiyfM7AbYK4mhe79Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805861581908-qpcpl0qfn2lpf572pjtkmhvoccnkuqm0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
