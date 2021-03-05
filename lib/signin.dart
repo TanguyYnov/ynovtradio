@@ -185,6 +185,8 @@ class _LoginPageState extends State<LoginPage> {
                               alignment: Alignment.centerRight,
                               child: MaterialButton(
                                 shape: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 onPressed: () {},
@@ -208,13 +210,9 @@ class _LoginPageState extends State<LoginPage> {
                         height: 50.0,
                         child: MaterialButton(
                           disabledColor: Colors.white10,
-                          // onPressed: signIn,
-                          shape: StadiumBorder(
-                            side: BorderSide(
-                              color: Colors.red,
-                              width: 2.0,
-                              style: BorderStyle.solid,
-                            ),
+                          shape: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.red, width: 2),
+                            borderRadius: BorderRadius.circular(15),
                           ),
                           onPressed: () {},
                           child: Text(
@@ -227,69 +225,34 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(
                         height: 10.0,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            ' or ',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              inherit: false,
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
                       SizedBox(
                         height: 10.0,
                       ),
                       SizedBox(height: 10.0),
                       GoogleAuthButton(
                         onPressed: () {},
-                        darkMode: false,
+                        text: "Se connecter avec Google",
                       ),
-
-                      /*SizedBox(
-                        height: 20.0,
+                      SizedBox(
+                        height: 10.0,
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            'Are you new here ?',
+                      Container(
+                        alignment: Alignment.center,
+                        child: MaterialButton(
+                          shape: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.transparent),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Créer un compte',
                             style: TextStyle(
-                              fontSize: 15.0,
-                              color: dwayaColor,
-                              inherit: false,
-                            ),
+                                fontSize: 14.0,
+                                color: Colors.white,
+                                inherit: false),
                           ),
-                          Material(
-                            color: Colors.white10,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: InkWell(
-                                  //  onTap: navigatorInscription,
-                                  child: Text(
-                                'Create an account',
-                                style: TextStyle(
-                                    fontSize: 15.0,
-                                    color: dwayaColor,
-                                    inherit: false),
-                              )),
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
-                     */
                     ],
                   ),
                 ),
