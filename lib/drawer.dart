@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:ynotradio/googleSignIn.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -42,8 +45,10 @@ class MyDrawer extends StatelessWidget {
               color: Colors.black,
             ),
             onTap: () {
-              //TODO
-            },
+              final provider =
+              Provider.of<GoogleSignInProvider>(context, listen: false) ;
+              provider.logout();
+              },
           ),
         ],
       ),

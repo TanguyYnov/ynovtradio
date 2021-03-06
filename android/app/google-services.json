@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "805861581908",
-    "project_id": "ynotradio-3c2ec",
-    "storage_bucket": "ynotradio-3c2ec.appspot.com"
+    "project_number": "86455304453",
+    "project_id": "ynotradioapp",
+    "storage_bucket": "ynotradioapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:805861581908:android:cea929491bc307cc4b39c1",
+        "mobilesdk_app_id": "1:86455304453:android:ab8f9b60cdb3f7b091776c",
         "android_client_info": {
           "package_name": "com.example.ynotradio"
         }
       },
       "oauth_client": [
         {
-          "client_id": "805861581908-2mepskscvm0b6li18ue226u2ran62hcp.apps.googleusercontent.com",
+          "client_id": "86455304453-atru71gr3l6er2bjlae5i72ouhrtgqb5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.ynotradio",
-            "certificate_hash": "110a83be1d5eaed61284e2f85b63e5920b5bdde9"
+            "certificate_hash": "07e837df247e6699e196e3a2e52abd900081b6d8"
           }
         },
         {
-          "client_id": "805861581908-qpcpl0qfn2lpf572pjtkmhvoccnkuqm0.apps.googleusercontent.com",
+          "client_id": "86455304453-m38sf6h581pdbpgrc92mbetct6umms8t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB69F9l-tnS2eBv6VwiyfM7AbYK4mhe79Y"
+          "current_key": "AIzaSyAf2fx-WRYc7GlR0kkHTwWNCJ4MlBByv3w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "805861581908-qpcpl0qfn2lpf572pjtkmhvoccnkuqm0.apps.googleusercontent.com",
+              "client_id": "86455304453-m38sf6h581pdbpgrc92mbetct6umms8t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

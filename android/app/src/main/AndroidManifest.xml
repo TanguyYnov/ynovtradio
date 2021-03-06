@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ynotradio">
-   <application
+   <application usesCleartextTraffic="true"
         android:label="ynotradio"
         android:icon="@mipmap/ic_launcher">
         <activity
