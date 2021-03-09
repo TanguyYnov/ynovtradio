@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:ynotradio/googleSignIn.dart';
 
 class MyDrawer extends StatelessWidget {
+  FirebaseAuth _auth = FirebaseAuth.instance ;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -44,14 +46,13 @@ class MyDrawer extends StatelessWidget {
               Icons.lock,
               color: Colors.black,
             ),
-            onTap: () {
-              final provider =
-              Provider.of<GoogleSignInProvider>(context, listen: false) ;
-              provider.logout();
-              },
+            onTap: () async{
+              await _auth.signOut() ;
+            },
           ),
         ],
       ),
     );
+
   }
 }

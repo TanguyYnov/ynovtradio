@@ -4,8 +4,9 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'home.dart';
 
 class GoogleSignIN extends StatefulWidget {
   @override
@@ -13,7 +14,11 @@ class GoogleSignIN extends StatefulWidget {
 }
 
 class _GoogleSignINState extends State<GoogleSignIN> {
+  final FirebaseAuth _auth = FirebaseAuth.instance ;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>() ;
   bool _showPassword = true ;
 
   @override
@@ -24,6 +29,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
     AuthButtonStyle authButtonStyle = AuthButtonStyle.secondary;
     bool darkMode = false;
     return Scaffold(
+      key: _scaffoldkey,
       body: Stack(
         children: [
           Padding(
@@ -67,6 +73,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                               elevation: 5.0,
                               borderRadius: BorderRadius.circular(10.0),
                               child: TextFormField(
+                                controller: _emailController,
                                 // ignore: missing_return
                                 validator: (input) {
                                   if (input.isEmpty) {
@@ -93,6 +100,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                                 elevation: 5.0,
                                 borderRadius: BorderRadius.circular(10.0),
                                 child: TextFormField(
+                                  controller: _passwordController,
                                   // ignore: missing_return
                                   validator: (input) {
                                     if (input.length < 8) {
@@ -116,7 +124,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                                       hintStyle: TextStyle(
                                         color: Colors.grey.shade600,
                                       )),
-                                  obscureText: true,
+                                  obscureText: _showPassword,
                                 ),
                               ),
                             ),
@@ -154,7 +162,11 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                             borderSide: BorderSide(color: Colors.red, width: 2),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          onPressed: () {},
+                          onPressed: () async {
+                            if(_formKey.currentState.validate()){
+                              _signinWithEmailPassword();
+;                            }
+                          },
                           child: Text(
                             'Connextion',
                             style:
@@ -213,7 +225,26 @@ class _GoogleSignINState extends State<GoogleSignIN> {
       ),
     );
   }
+  void _signinWithEmailPassword () async {
+    try {
+      final User user = (
+          await _auth.signInWithEmailAndPassword(
+              email: _emailController.text, password: _passwordController.text)).user;
+              if(!user.emailVerified){
+                await user.sendEmailVerification();
+              }
+          Navigator.of(context).push(MaterialPageRoute(builder: (_){
+            return MyHome() ;
+          })) ;
+    } catch (e){
+      // ignore: deprecated_member_use
+      _scaffoldkey.currentState.showSnackBar(
+          SnackBar(content: Text("Fialed email and passowrd")));
+      print(e);
+    }
+  }
 }
+
 
 
 class GoogleSignInProvider extends ChangeNotifier {
