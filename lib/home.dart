@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ynotradio/bottomnav.dart';
@@ -6,6 +7,10 @@ import 'package:ynotradio/playlist.dart';
 import 'package:ynotradio/votes.dart';
 
 class MyHome extends StatelessWidget {
+  final User user;
+
+  const MyHome({Key key, this.user}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

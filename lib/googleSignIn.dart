@@ -2,9 +2,11 @@ import 'dart:ui';
 import 'package:auth_buttons/res/buttons/google_auth_button.dart';
 import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ynotradio/signup.dart';
 
 import 'home.dart';
 
@@ -73,6 +75,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                               elevation: 5.0,
                               borderRadius: BorderRadius.circular(10.0),
                               child: TextFormField(
+                                keyboardType: TextInputType.emailAddress,
                                 controller: _emailController,
                                 // ignore: missing_return
                                 validator: (input) {
@@ -199,7 +202,9 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                             borderSide: BorderSide(color: Colors.transparent),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+                          },
                           child: Text(
                             'Créer un compte',
                             style: TextStyle(
@@ -213,7 +218,7 @@ class _GoogleSignINState extends State<GoogleSignIN> {
                         height: MediaQuery
                             .of(context)
                             .padding
-                            .top * 3,
+                            .top * 2.5,
                       ),
                     ],
                   ),
@@ -279,7 +284,6 @@ class GoogleSignInProvider extends ChangeNotifier {
       );
 
       await FirebaseAuth.instance.signInWithCredential(credential) ;
-
       isSignIn = false ;
     }
   }
@@ -287,5 +291,7 @@ class GoogleSignInProvider extends ChangeNotifier {
   void logout () async {
     await googleSignIn.disconnect();
     FirebaseAuth.instance.signOut();
+    notifyListeners() ;
+    isSignIn = false ;
   }
 }
