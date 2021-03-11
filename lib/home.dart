@@ -81,8 +81,6 @@ class _MyHomePageState extends State<MyHomePage> {
               fit: BoxFit.cover,
             ),
           ),
-
-          // This trailing comma makes auto-formatting nicer for build methods.
         ),
       ),
       floatingActionButton: Center(

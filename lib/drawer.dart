@@ -2,12 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:provider/provider.dart';
-import 'package:ynotradio/googleSignIn.dart';
-import 'package:ynotradio/signin.dart';
+import 'package:ynotradio/authentication.dart';
 
 class MyDrawer extends StatelessWidget {
-  FirebaseAuth _auth = FirebaseAuth.instance ;
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -47,21 +45,15 @@ class MyDrawer extends StatelessWidget {
               Icons.lock,
               color: Colors.black,
             ),
-            onTap: () async{
+            onTap: () async {
               await _auth.signOut().then((value) => Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginIN()
-                ),
-              )
-              );
+                    context,
+                    MaterialPageRoute(builder: (context) => Authentication()),
+                  ));
             },
-            // await FirebaseAuth.instance.signOut();
-            // firebaseUser = await await _auth.currentUser();
           ),
         ],
       ),
     );
-
   }
 }

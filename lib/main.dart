@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:ynotradio/signin.dart';
-import 'package:ynotradio/signup.dart';
+import 'package:ynotradio/authentication.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +9,7 @@ Future main() async {
 
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   static const String _title = 'YNOT RADIO';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginIN(),
+      home: Authentication(),
     );
   }
 }
