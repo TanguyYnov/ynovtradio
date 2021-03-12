@@ -4,42 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:ynotradio/bottomnav.dart';
 import 'package:ynotradio/drawer.dart';
 import 'package:ynotradio/playlist.dart';
+import 'package:ynotradio/signup.dart';
 import 'package:ynotradio/votes.dart';
 
-class MyHome extends StatelessWidget {
+
+class Home extends StatefulWidget {
   final User user;
 
-  const MyHome({Key key, this.user}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'YNOT Radio',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(),
-      initialRoute: '',
-      routes: {
-        '': (context) => MyHomePage(),
-        '/second': (context) => MyHomePage2(),
-        '/third': (context) => MyHomePage3(),
-      },
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const Home({Key key, this.user, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeState extends State<Home> {
   int _currentIndex = 0;
 
   final tabs = [
@@ -105,3 +85,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

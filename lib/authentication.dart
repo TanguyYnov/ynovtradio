@@ -1,11 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:ynotradio/googleSignIn.dart';
 import 'package:ynotradio/home.dart';
 import 'package:ynotradio/signin.dart';
 
-class Authentication extends StatelessWidget {
+class Authentication extends StatefulWidget {
+  @override
+  _AuthenticationState createState() => _AuthenticationState();
+}
+
+class _AuthenticationState extends State<Authentication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,13 +17,14 @@ class Authentication extends StatelessWidget {
         create: (context) => GoogleSignInProvider(),
         child: StreamBuilder(
           builder: (context, snapshot) {
-            final provider = Provider.of<GoogleSignInProvider>(context);
+            GoogleSignInProvider provider =
+                Provider.of<GoogleSignInProvider>(context);
             if (provider.isSignIn) {
               return Center(
                 child: CircularProgressIndicator(),
               );
             } else if (snapshot.hasData) {
-              return MyHome();
+              return Home();
             } else {
               return SignIn();
             }
