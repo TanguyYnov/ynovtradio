@@ -287,25 +287,23 @@ class GoogleSignInProvider extends ChangeNotifier {
   }
 
   Future login() async {
-    try {
-      final user = await googleSignIn.signIn();
+    isSignIn = true;
 
-      if (user == null) {
-        isSignIn = false;
-        return;
-      } else {
-        final googleAuth = await user.authentication;
+    final user = await googleSignIn.signIn();
 
-        final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken,
-          idToken: googleAuth.idToken,
-        );
+    if (user == null) {
+      isSignIn = false;
+      return;
+    } else {
+      final googleAuth = await user.authentication;
 
-        await FirebaseAuth.instance.signInWithCredential(credential);
-        isSignIn = true;
-      }
-    } catch (e) {
-      print(e.toString());
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      await FirebaseAuth.instance.signInWithCredential(credential);
+      isSignIn = false;
     }
   }
 
